@@ -15,22 +15,22 @@
 Route::get('/', 'PageController')->name('page.index');
 
 // Routes for the CRUD operations for Campsites
-Route::get('/campsites',           'CampController@index')->name('campsites.index');
-Route::get('/campsites/create',    'CampController@create')->name('campsites.create');
-Route::post('/campsites',          'CampController@store')->name('campsites.store');
-Route::get('/campsites/{id}',      'CampController@show')->name('campsites.show');
-Route::get('/campsites/{id}/edit', 'CampController@edit')->name('campsites.edit');
-Route::put('/campsites/{id}',      'CampController@update')->name('campsites.update');
-Route::delete('/campsites/{id}',   'CampController@destroy')->name('campsites.destroy');
+Route::get('/campsites',           'CampsiteController@index')->name('campsites.index');
+Route::get('/campsites/create',    'CampsiteController@create')->name('campsites.create');
+Route::post('/campsites',          'CampsiteController@store')->name('campsites.store');
+Route::get('/campsites/{id}',      'CampsiteController@show')->name('campsites.show');
+Route::get('/campsites/{id}/edit', 'CampsiteController@edit')->name('campsites.edit');
+Route::put('/campsites/{id}',      'CampsiteController@update')->name('campsites.update');
+Route::delete('/campsites/{id}',   'CampsiteController@destroy')->name('campsites.destroy');
 
 // Routes for the CRUD operations for reviews
-Route::get('/campsites/{id}/reviews',           'CampController@index')->name('campsites.index');
-Route::get('/campsites/{id}/reviews/create',    'CampController@create')->name('campsites.create');
-Route::post('/campsites{id}/reviews',           'CampController@store')->name('campsites.store');
-Route::get('/campsites/{id}/reviews/{id}',      'CampController@show')->name('campsites.show');
-Route::get('/campsites/{id}/reviews/{id}/edit', 'CampController@edit')->name('campsites.edit');
-Route::put('/campsites/{id}/reviews/{id}',      'CampController@update')->name('campsites.update');
-Route::delete('/campsites/{id}/reviews/{id}',   'CampController@destroy')->name('campsites.destroy');
+Route::get('/campsites/{id}/reviews',           'CampsiteController@index')->name('campsites.index');
+Route::get('/campsites/{id}/reviews/create',    'CampsiteController@create')->name('campsites.create');
+Route::post('/campsites{id}/reviews',           'CampsiteController@store')->name('campsites.store');
+Route::get('/campsites/{id}/reviews/{id}',      'CampsiteController@show')->name('campsites.show');
+Route::get('/campsites/{id}/reviews/{id}/edit', 'CampsiteController@edit')->name('campsites.edit');
+Route::put('/campsites/{id}/reviews/{id}',      'CampsiteController@update')->name('campsites.update');
+Route::delete('/campsites/{id}/reviews/{id}',   'CampsiteController@destroy')->name('campsites.destroy');
 
 /*
 | Temporary Debug Route

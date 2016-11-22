@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+}
+
+header#mainHeader {
+    background: url(../images/fleurdelis200x200.gif) no-repeat;
+    text-align: center;
+    height: 200px;
+    margin: 10px 0;
+}
+
+header#mainHeader h1 {
+    padding-top: 40px;
+    font-size: 4em;
+    font-weight: bold;
+    color: #CE1126;
+}
+
+header#mainHeader p {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+    color: #003F87;
+}
+
+main {
+    padding-top: 10px;
+    clear: both;
+    border-top: 2px solid darkgray;
+
+}
