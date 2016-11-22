@@ -18,7 +18,7 @@
 
     <header id="mainHeader" role="banner">
         <h1>CampMonkey</h1>
-        <p>Your guide to Scouting Campsites</p>
+        <p>Your guide to Scouting Campgrounds</p>
     </header>
 
     <main>

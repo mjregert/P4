@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CampsiteController extends Controller
+class CampgroundController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class CampsiteController extends Controller
      */
     public function index()
     {
-        return view('campsite.index');
+        return view('campground.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class CampsiteController extends Controller
      */
     public function create()
     {
-        return view('campsite.create');
+        return view('campground.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class CampsiteController extends Controller
     {
         // Add validation here
 
-        return view('campsite.index');
+        return view('campground.index');
 
     }
 
@@ -48,7 +48,7 @@ class CampsiteController extends Controller
      */
     public function show($title)
     {
-        return view('campsite.show')->with('title', $title);
+        return view('campground.show')->with('title', $title);
     }
 
     /**

@@ -14,24 +14,25 @@
 // Main route and the entry point for the application
 Route::get('/', 'PageController')->name('page.index');
 
-// Routes for the CRUD operations for Campsites
-Route::get('/campsites',           'CampsiteController@index')->name('campsites.index');
-Route::get('/campsites/create',    'CampsiteController@create')->name('campsites.create');
-Route::post('/campsites',          'CampsiteController@store')->name('campsites.store');
-Route::get('/campsites/{id}',      'CampsiteController@show')->name('campsites.show');
-Route::get('/campsites/{id}/edit', 'CampsiteController@edit')->name('campsites.edit');
-Route::put('/campsites/{id}',      'CampsiteController@update')->name('campsites.update');
-Route::delete('/campsites/{id}',   'CampsiteController@destroy')->name('campsites.destroy');
+// Routes for the CRUD operations for campgrounds
+Route::get('/campgrounds',           'CampgroundController@index')->name('campgrounds.index');
+Route::get('/campgrounds/create',    'CampgroundController@create')->name('campgrounds.create');
+Route::post('/campgrounds',          'CampgroundController@store')->name('campgrounds.store');
+Route::get('/campgrounds/{id}',      'CampgroundController@show')->name('campgrounds.show');
+Route::get('/campgrounds/{id}/edit', 'CampgroundController@edit')->name('campgrounds.edit');
+Route::put('/campgrounds/{id}',      'CampgroundController@update')->name('campgrounds.update');
+Route::delete('/campgrounds/{id}',   'CampgroundController@destroy')->name('campgrounds.destroy');
 
 // Routes for the CRUD operations for reviews
-Route::get('/campsites/{id}/reviews',           'CampsiteController@index')->name('campsites.index');
-Route::get('/campsites/{id}/reviews/create',    'CampsiteController@create')->name('campsites.create');
-Route::post('/campsites{id}/reviews',           'CampsiteController@store')->name('campsites.store');
-Route::get('/campsites/{id}/reviews/{id}',      'CampsiteController@show')->name('campsites.show');
-Route::get('/campsites/{id}/reviews/{id}/edit', 'CampsiteController@edit')->name('campsites.edit');
-Route::put('/campsites/{id}/reviews/{id}',      'CampsiteController@update')->name('campsites.update');
-Route::delete('/campsites/{id}/reviews/{id}',   'CampsiteController@destroy')->name('campsites.destroy');
-
+/*
+Route::get('/campgrounds/{id}/reviews',           'CampgroundController@index')->name('campgrounds.index');
+Route::get('/campgrounds/{id}/reviews/create',    'CampgroundController@create')->name('campgrounds.create');
+Route::post('/campgrounds{id}/reviews',           'CampgroundController@store')->name('campgrounds.store');
+Route::get('/campgrounds/{id}/reviews/{id}',      'CampgroundController@show')->name('campgrounds.show');
+Route::get('/campgrounds/{id}/reviews/{id}/edit', 'CampgroundController@edit')->name('campgrounds.edit');
+Route::put('/campgrounds/{id}/reviews/{id}',      'CampgroundController@update')->name('campgrounds.update');
+Route::delete('/campgrounds/{id}/reviews/{id}',   'CampgroundController@destroy')->name('campgrounds.destroy');
+*/
 /*
 | Temporary Debug Route
 */
@@ -69,3 +70,16 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+
+
+if(App::environment('local')) {
+
+    Route::get('/drop', function() {
+
+        DB::statement('DROP database campmonkey');
+        DB::statement('CREATE database campmonkey');
+
+        return 'Dropped campmonkey; created campmonkey.';
+    });
+
+};

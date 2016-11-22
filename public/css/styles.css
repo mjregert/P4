@@ -43,3 +43,85 @@ main {
     border-top: 2px solid darkgray;
 
 }
+
+form div {
+    margin: 20px 0;
+}
+
+form div label {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #003F87;
+}
+
+em {
+    color: #CE1126;
+}
+
+input[type="text"], textarea {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+input, select, textarea {
+    font-size: 1.2em;
+    padding: 3px;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+input[type="checkbox"] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 3px;
+}
+
+input[name="name"], input[name="address"] {
+    width: 900px;
+}
+
+label[for="description"] {
+    width: 900px;
+    display: inline-block;
+}
+
+textarea[name="description"] {
+    width: 900px;
+    height: 100px;
+    resize: none;
+    display: inline-block;
+}
+
+label[for="campsites"], label[for="fees"] {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+input[name="campsites"], input[name="fees"] {
+    width: 75px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+input[name="restrooms"], label[for="fees"] {
+    margin-left: 50px;
+    display: inline-block;
+}
+
+label[for="city"], input[name="city"] {
+    width: 397px;
+    display: inline-block;
+}
+
+label[for="state"], select[name="state"] {
+    width: 275px;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+label[for="zipcode"], input[name="zipcode"] {
+    width: 120px;
+    margin-left: 50px;
+    display: inline-block;
+}

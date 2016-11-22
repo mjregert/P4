@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <a href="/campsites">Click here to see all campsites</a>
+    <a href="/campgrounds">Click here to see all campgrounds</a>
 @stop
 
 

@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Show all Campsites
+    Show all Campgrounds
 @stop
 
 
@@ -18,7 +18,7 @@ such as a page specific stylesheets.
 
 @section('content')
 <small><em>* indicates required field</em>
-<form method='POST' action='/campsites'>
+<form method='POST' action='/campgrounds'>
     <div>
         <label for="name">Campground Name or Title<em> *</em></label><br>
         <input id="name" name="name" type="text" required aria-required="true">

@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Show all Campsites
+    Show all Campgrounds
 @stop
 
 
@@ -17,7 +17,7 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <p>No Campsites entered yet!</p>
+    <p>No Campgrounds entered yet!</p>
 @stop
 
 
