@@ -17,7 +17,23 @@ such as a page specific stylesheets.
 
 
 @section('content')
-    <p>No Campgrounds entered yet!</p>
+<div>
+    @if(!$campgrounds->isEmpty())
+        @foreach($campgrounds as $campground)
+            <h2>{{ $campground->name }}</h2>
+            <p>{{ $campground->description }}</p>
+            <p>{{ $campground->campsites }}</p>
+            <p>{{ $campground->restrooms }}</p>
+            <p>{{ $campground->fees }}</p>
+            <p>{{ $campground->address }}</p>
+            <p>{{ $campground->city }}</p>
+            <p>{{ $campground->state }}</p>
+            <p>{{ $campground->zipcode }}</p>
+        @endforeach
+    @else
+        <h2>No camps</h2>
+    @endif
+</div>
 @stop
 
 

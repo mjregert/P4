@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Carbon;
+use App\Campground;
 
 class CampgroundController extends Controller
 {
@@ -13,7 +16,8 @@ class CampgroundController extends Controller
      */
     public function index()
     {
-        return view('campground.index');
+        $campgrounds = Campground::all();
+        return view('campground.index')->with('campgrounds', $campgrounds);
     }
 
     /**
