@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Show book
+    {{ $campground->name }}
 @stop
 
 
@@ -12,16 +12,23 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-    <link href="/css/books/show.css" type='text/css' rel='stylesheet'>
+    <!--link href="/css/books/show.css" type='text/css' rel='stylesheet'-->
 @stop
 
 
 @section('content')
-    @if($title)
-        <h1>Show book: {{ $title }}</h1>
-    @else
-        <h1>No book chosen</h1>
-    @endif
+<div id="campgrounds">
+    <h2>{{ $campground->id }}</h2>
+    <h2>{{ $campground->name }}</h2>
+    <p>{{ $campground->description }}</p>
+    <p>{{ $campground->campsites }}</p>
+    <p>{{ $campground->restrooms }}</p>
+    <p>{{ $campground->fees }}</p>
+    <p>{{ $campground->address }}</p>
+    <p>{{ $campground->city }}</p>
+    <p>{{ $campground->state }}</p>
+    <p>{{ $campground->zipcode }}</p>
+</div>
 @stop
 
 
@@ -31,5 +38,5 @@ Use it to add specific things that *this* View needs at the end of the body,
 such as a page specific JavaScript files.
 --}}
 @section('body')
-    <script src="/js/books/show.js"></script>
+    <!--script src="/js/books/show.js"></script-->
 @stop

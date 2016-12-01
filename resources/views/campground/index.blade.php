@@ -17,9 +17,11 @@ such as a page specific stylesheets.
 
 
 @section('content')
-<div>
+<div id="campgrounds">
     @if(!$campgrounds->isEmpty())
+        <h1>All Campgrounds</h1>
         @foreach($campgrounds as $campground)
+            <h2>{{ $campground->id }}</h2>
             <h2>{{ $campground->name }}</h2>
             <p>{{ $campground->description }}</p>
             <p>{{ $campground->campsites }}</p>

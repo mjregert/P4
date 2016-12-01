@@ -12,11 +12,11 @@ body {
     width: 900px;
     margin: 0 auto;
     position: relative;
-    background-color: white;
+    background-color: #E7E7E7;
 }
 
 header#mainHeader {
-    background: url(../images/fleurdelis200x200.gif) no-repeat;
+    background: url(../images/fleudelis.png) no-repeat;
     text-align: center;
     height: 200px;
     margin: 10px 0;
@@ -41,9 +41,54 @@ main {
     padding-top: 10px;
     clear: both;
     border-top: 2px solid darkgray;
-
 }
 
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
+}
+
+/** -------------------------
+ *  SHOW CAMPGROUND STYLES
+ **/
+#campgrounds h1 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #CE1126;
+}
+
+#campgrounds h2 {
+    font-size: 1em;
+    font-weight: bold;
+    color: #003F87;
+}
+
+div#campgrounds {
+    background-color: white;
+    border: 1px solid darkgray;
+    border-radius: 1em;
+    padding: 1em 3em;
+    display: inline-block;
+    float: left;
+}
+div#details {
+    clear: both;
+    display: inline-block;
+}
+
+div#campgrounds h1 {
+    border-bottom: 1px solid black;
+}
+
+/** -------------------------
+ *  CREATE CAMPGROUND STYLES
+ **/
 form div {
     margin: 20px 0;
 }

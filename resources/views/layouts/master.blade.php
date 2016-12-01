@@ -22,6 +22,10 @@
     </header>
 
     <main>
+        @if(Session::get('flash_message') != null)
+            <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+        @endif
+
         {{-- Main page content will be yielded here --}}
         @yield('content')
     </main>

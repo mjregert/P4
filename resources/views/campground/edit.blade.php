@@ -2,7 +2,7 @@
 
 
 @section('title')
-    Show all Campgrounds
+    Edit:
 @stop
 
 
@@ -17,34 +17,40 @@ such as a page specific stylesheets.
 
 
 @section('content')
+
+<h1>Edit: </h1>
 <small><em>* indicates required field</em>
-<form method='POST' action='/campgrounds'>
+<form method='POST' action='/campgrounds/{{ $campground->id }}'>
+
+    {{ method_field('PUT') }}
+    <input name="id" value="{{ $campground->id }}" type="hidden">
+
     <div>
         <label for="name">Campground Name or Title<em> *</em></label><br>
-        <input id="name" name="name" type="text" required aria-required="true" value="{{ old('name', 'CampsiteABC') }}">
+        <input id="name" name="name" type="text" required aria-required="true" value="{{ old('name', $campground->name) }}">
     </div>
     <div>
         <label for="description">Description of the Campground</label>
-        <textarea id="description" name="description" value="{{ old('description', 'Some Description Here') }}"></textarea>
+        <textarea id="description" name="description" value="{{ old('description', $campground->description) }}"></textarea>
     </div>
     <div>
         <label for="campsites">Number of Campsites</label>
-        <input id="campsites" name="campsites" type="number" min="1" value="{{ old('campsites', '42') }}">
-        <input id="restrooms" name="restrooms" type="checkbox" value="{{ old('restrooms') }}">
+        <input id="campsites" name="campsites" type="number" min="1" value="{{ old('campsites', $campground->campsites) }}">
+        <input id="restrooms" name="restrooms" type="checkbox" value="{{ old('restrooms', $campground->restrooms) }}">
         <label for="restrooms">Restrooms</label>
         <label for="fees">Usage Fee (if applicable)</label>
-        $<input id="fees" name="fees" type="number" min="0" value="{{ old('fees', '42') }}">
+        $<input id="fees" name="fees" type="number" min="0" value="{{ old('fees', $campground->fees) }}">
     </div>
     <div>
         <label for="address">Address<em> *</em></label><br>
-        <input id="address" name="address" type="text" value="{{ old('address', '123 Some Street') }}">
+        <input id="address" name="address" type="text" value="{{ old('address', $campground->address) }}">
     </div>
     <div>
         <label for="city">City<em> *</em></label>
         <label for="state">State<em> *</em></label>
         <label for="zipcode">Zip Code<em> *</em></label><br>
-        <input id="city" name="city" type="text" value="{{ old('city', 'Anytown') }}">
-        <select id="state" name="state">
+        <input id="city" name="city" type="text" value="{{ old('city', $campground->address) }}">
+        <select id="state" name="state" value={{ old('state', $campground->state) }}>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -97,7 +103,7 @@ such as a page specific stylesheets.
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
         </select>
-        <input id="zipcode" name="zipcode" type="text" value="{{ old('zipcode', '80020') }}">
+        <input id="zipcode" name="zipcode" type="text" value="{{ old('zipcode', $campground->zipcode) }}">
     </div>
     <div>{{ csrf_field() }}</div>
     <input id="reset" type="reset"><input id="submit" type="submit">
