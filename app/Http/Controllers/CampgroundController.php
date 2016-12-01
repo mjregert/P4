@@ -145,6 +145,20 @@ class CampgroundController extends Controller
     }
 
     /**
+     * Show the confirmation for deleting the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $campground = Campground::find($id);
+        // Add validation to ensure this is found
+
+        return view('campground.delete')->with('campground', $campground);
+    }
+    
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

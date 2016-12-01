@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CampgroundTableSeeder extends Seeder
+class CampgroundsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

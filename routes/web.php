@@ -15,13 +15,14 @@
 Route::get('/', 'PageController')->name('page.index');
 
 // Routes for the CRUD operations for campgrounds
-Route::get('/campgrounds',           'CampgroundController@index')->name('campgrounds.index');
-Route::get('/campgrounds/create',    'CampgroundController@create')->name('campgrounds.create');
-Route::post('/campgrounds',          'CampgroundController@store')->name('campgrounds.store');
-Route::get('/campgrounds/{id}',      'CampgroundController@show')->name('campgrounds.show');
-Route::get('/campgrounds/{id}/edit', 'CampgroundController@edit')->name('campgrounds.edit');
-Route::put('/campgrounds/{id}',      'CampgroundController@update')->name('campgrounds.update');
-Route::delete('/campgrounds/{id}',   'CampgroundController@destroy')->name('campgrounds.destroy');
+Route::get('/campgrounds',             'CampgroundController@index')->name('campgrounds.index');
+Route::get('/campgrounds/create',      'CampgroundController@create')->name('campgrounds.create');
+Route::post('/campgrounds',            'CampgroundController@store')->name('campgrounds.store');
+Route::get('/campgrounds/{id}',        'CampgroundController@show')->name('campgrounds.show');
+Route::get('/campgrounds/{id}/edit',   'CampgroundController@edit')->name('campgrounds.edit');
+Route::put('/campgrounds/{id}',        'CampgroundController@update')->name('campgrounds.update');
+Route::get('/campgrounds/{id}/delete', 'CampgroundController@delete')->name('campgrounds.delete');
+Route::delete('/campgrounds/{id}',     'CampgroundController@destroy')->name('campgrounds.destroy');
 
 // Routes for the CRUD operations for reviews
 /*

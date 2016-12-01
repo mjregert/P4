@@ -33,8 +33,6 @@ class CreateCampgroundsTable extends Migration
             $table->string('city');
             $table->char('state',2);
             $table->integer('zipcode');
-
-            # FYI: We're skipping the 'tags' field for now; more on that later.
         });
     }
 
