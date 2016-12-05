@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Maitree');
 
 html {
     box-sizing: border-box;
+    height: 100%;
+    min-width: 900px;
 }
 
 *, *::before, *::after {
@@ -9,24 +11,28 @@ html {
 }
 
 body {
-    width: 900px;
     margin: 0 auto;
     position: relative;
-    background-color: #E7E7E7;
+    height: 100%;
+    padding: 15px 25px;
+    /*font-family: 'Anonymous Pro', monospace;
+    font-family: 'Maitree', serif;*/
 }
 
 header#mainHeader {
-    background: url(../images/fleudelis.png) no-repeat;
+    background: url(../images/fleurdelis.png) no-repeat;
     text-align: center;
-    height: 200px;
-    margin: 10px 0;
+    height: 150px;
+    padding: 10px 0;
+    clear: both;
 }
 
 header#mainHeader h1 {
-    padding-top: 40px;
+    padding-top: 10px;
     font-size: 4em;
     font-weight: bold;
     color: #CE1126;
+    text-shadow: 1px 1px #000;
 }
 
 header#mainHeader p {
@@ -37,14 +43,12 @@ header#mainHeader p {
     color: #003F87;
 }
 
-main {
-    padding-top: 10px;
-    clear: both;
-    border-top: 2px solid darkgray;
+.login {
+    float: right;
 }
 
 .flash_message {
-    width:100%;
+    width:90%;
     text-align:center;
     padding:5px;
     position:fixed;
@@ -54,36 +58,120 @@ main {
     font-weight:bold;
 }
 
+main {
+    clear: both;
+}
+
+main>p {
+    font-size: 1.2em;
+    padding: 20px;
+    margin: 10px 0 20px 0;
+    border: 2px solid darkgray;
+    background-color: lightblue;
+    border-radius: 0.5em;
+}
+
 /** -------------------------
- *  SHOW CAMPGROUND STYLES
+ *  CAMPGROUND LIST / NAVIGATION
  **/
-#campgrounds h1 {
+
+#campgrounds {
+    background-color: lightblue;
+    border: 1px solid darkgray;
+    border-radius: .5em;
+    padding: 1em 1em;
+    float: left;
+    width: 300px;
+}
+
+#campgrounds h1, #reviews h1 {
     font-size: 1.2em;
     font-weight: bold;
     color: #CE1126;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid black;
 }
 
-#campgrounds h2 {
-    font-size: 1em;
-    font-weight: bold;
+#campgrounds h1 i, #reviews h1 i {
+    color: #CE1126;
+}
+
+#campgrounds li {
+    margin: 1em 0;
+}
+
+#blueu {
+    padding: 20px;
+    border: 2px solid darkgray;
+
+    background-color: lightblue;
+}
+
+#campgrounds li i {
     color: #003F87;
 }
 
-div#campgrounds {
-    background-color: white;
-    border: 1px solid darkgray;
-    border-radius: 1em;
-    padding: 1em 3em;
-    display: inline-block;
-    float: left;
-}
-div#details {
-    clear: both;
-    display: inline-block;
+#campgrounds a {
+    margin: 1em;
+    font-size: 1em;
+    color: #003F87;
+    text-decoration: none;
 }
 
-div#campgrounds h1 {
-    border-bottom: 1px solid black;
+#campgrounds a.active {
+    font-weight: bold;
+}
+
+/** -------------------------
+ *  CAMPGROUND DETAILS
+ **/
+#details {
+    margin-left: 320px;
+    margin-right: 320px;
+    padding: 0.2em 1em;
+}
+
+#details h1 {
+    font-size: 2em;
+    color: #CE1126;
+    text-shadow: 1px 1px #000;
+}
+
+#details h2 {
+    font-weight: bold;
+    color: #003F87;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
+
+#details div {
+    margin-top: 1.5em;
+}
+
+#reviews {
+    float:right;
+    width: 400px;
+    background-color: lightgreen;
+    border: 1px solid darkgray;
+    border-radius: 1em;
+    padding: 1em 1em;
+}
+
+
+
+#reviews .review {
+    margin: 1.5em 0;
+}
+
+#reviews .review h2 {
+    color: #003F87;
+    font-weight: bold;
+}
+
+#reviews .review em {
+    font-style: italic;
+    color: #003F87;
 }
 
 /** -------------------------
@@ -169,4 +257,8 @@ label[for="zipcode"], input[name="zipcode"] {
     width: 120px;
     margin-left: 50px;
     display: inline-block;
+}
+
+#footer {
+    clear: both;
 }

@@ -22,7 +22,6 @@ such as a page specific stylesheets.
     <h2>{{ $campground->name }}</h2>
     <p>{{ $campground->description }}</p>
     <p>{{ $campground->campsites }}</p>
-    <p>{{ $campground->restrooms }}</p>
     <p>{{ $campground->fees }}</p>
     <p>{{ $campground->address }}</p>
     <p>{{ $campground->city }}</p>

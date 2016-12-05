@@ -9,18 +9,20 @@
     <meta charset='utf-8'>
     <link rel="stylesheet" type='text/css' href="/css/reset.css">
     <link rel="stylesheet" type='text/css' href="/css/styles.css">
+    <link rel="stylesheet" type='text/css' href="/css/font-awesome.css">
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 
 </head>
 <body>
-
+    <div class="login">
+        <i class="fa fa-sign-in" aria-hidden="true"> Log In</i>
+    </div>
     <header id="mainHeader" role="banner">
         <h1>CampMonkey</h1>
         <p>Your guide to Scouting Campgrounds</p>
     </header>
-
     <main>
         @if(Session::get('flash_message') != null)
             <div class='flash_message'>{{ Session::get('flash_message') }}</div>
@@ -30,7 +32,7 @@
         @yield('content')
     </main>
 
-    <footer>
+    <footer id="footer">
         <!--&copy; {{ date('Y') }} -->
     </footer>
 

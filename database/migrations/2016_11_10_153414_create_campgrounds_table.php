@@ -24,9 +24,8 @@ class CreateCampgroundsTable extends Migration
 
             # The rest of the fields...
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('campsites');
-            $table->boolean('restrooms');
             $table->decimal('fees');
 
             $table->string('address');

@@ -36,8 +36,6 @@ such as a page specific stylesheets.
     <div>
         <label for="campsites">Number of Campsites</label>
         <input id="campsites" name="campsites" type="number" min="1" value="{{ old('campsites', $campground->campsites) }}">
-        <input id="restrooms" name="restrooms" type="checkbox" value="{{ old('restrooms', $campground->restrooms) }}">
-        <label for="restrooms">Restrooms</label>
         <label for="fees">Usage Fee (if applicable)</label>
         $<input id="fees" name="fees" type="number" min="0" value="{{ old('fees', $campground->fees) }}">
     </div>

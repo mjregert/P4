@@ -17,8 +17,14 @@ class CampgroundController extends Controller
      */
     public function index()
     {
-        $campgrounds = Campground::all();
-        return view('campground.index')->with('campgrounds', $campgrounds);
+        $campgrounds = Campground::with('reviews')->get();
+        // Automatically select the first one
+        $selected_campground = $campgrounds->first();
+
+        return view('campground.index')->with([
+                'campgrounds' => $campgrounds,
+                'selected_campground' => $selected_campground
+            ]);
     }
 
     /**
@@ -54,11 +60,6 @@ class CampgroundController extends Controller
         $campground->name = $request->name;
         $campground->description = $request->description;
         $campground->campsites = $request->campsites;
-        if ($request->restrooms && $request->restrooms == "on") {
-            $campground->restrooms = true;
-        } else {
-            $campground->restrooms = false;
-        }
         $campground->fees = $request->fees;
         $campground->address = $request->address;
         $campground->city = $request->city;
@@ -82,9 +83,14 @@ class CampgroundController extends Controller
      */
     public function show($id)
     {
-        $campground = Campground::find($id);
+        $campgrounds = Campground::all();
+        $selected_campground = Campground::find($id);
+
         // Add validation to ensure this is found
-        return view('campground.show')->with('campground', $campground);
+        return view('campground.index')->with([
+                'campgrounds' => $campgrounds,
+                'selected_campground' => $selected_campground
+            ]);
     }
 
     /**
@@ -124,11 +130,6 @@ class CampgroundController extends Controller
         $campground->name = $request->name;
         $campground->description = $request->description;
         $campground->campsites = $request->campsites;
-        if ($request->restrooms && $request->restrooms == "on") {
-            $campground->restrooms = true;
-        } else {
-            $campground->restrooms = false;
-        }
         $campground->fees = $request->fees;
         $campground->address = $request->address;
         $campground->city = $request->city;
@@ -139,9 +140,16 @@ class CampgroundController extends Controller
         # This will update the existing row in the `campgrounds` table, with the above data
         $campground->save();
 
-        $campgrounds = Campground::all();
         Session::flash('flash_message','Your campground edits were saved');
-        return view('campground.index')->with('campgrounds', $campgrounds);;
+
+        $campgrounds = Campground::all();
+        $selected_campground = Campground::find($id);
+
+        // Add validation to ensure this is found
+        return view('campground.index')->with([
+                'campgrounds' => $campgrounds,
+                'selected_campground' => $selected_campground
+            ]);
     }
 
     /**
@@ -157,7 +165,7 @@ class CampgroundController extends Controller
 
         return view('campground.delete')->with('campground', $campground);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *

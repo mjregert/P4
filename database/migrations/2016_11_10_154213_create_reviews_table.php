@@ -24,7 +24,7 @@ class CreateReviewsTable extends Migration
 
             # The rest of the fields...
             $table->string('username');
-            $table->string('review');
+            $table->text('review');
             $table->integer('star_rating');
         });
     }
