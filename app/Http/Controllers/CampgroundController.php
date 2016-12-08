@@ -13,31 +13,39 @@ use App\Type;
 class CampgroundController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of ALL of the campgrounds.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        # Get all Camgounds along with their Reviews and Type using pivot tables
         $campgrounds = Campground::with(['reviews','type'])->get();
-        // Automatically select the first one
+
+        # We want to automatically have one selected, so select the first one
+        # Note:  It's ok if there is not any campgrounds, this will return NULL
+        # and the UI handles NULL so no validation is needed here
         $selected_campground = $campgrounds->first();
 
         return view('campground.index')->with([
-                'campgrounds' => $campgrounds,
-                'selected_campground' => $selected_campground
-            ]);
+            'campgrounds' => $campgrounds,
+            'selected_campground' => $selected_campground
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new campground.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
+        # Get all of the Types so that the UI can provide this in the form
         $types = Type::all();
-        return view('campground.create')->with(['types' => $types]);
+
+        return view('campground.create')->with([
+            'types' => $types
+        ]);
     }
 
     /**
@@ -168,10 +176,10 @@ class CampgroundController extends Controller
      */
     public function delete($id)
     {
-        $campground = Campground::find($id);
+        $selected_campground = Campground::find($id);
         // Add validation to ensure this is found
 
-        return view('campground.delete')->with('campground', $campground);
+        return view('campground.delete')->with('selected_campground', $selected_campground);
     }
 
     /**
@@ -182,6 +190,36 @@ class CampgroundController extends Controller
      */
     public function destroy($id)
     {
-        //
+        # Get the Campground to be deleted
+        $campground = Campground::find($id);
+
+        if(is_null($campground)) {
+            Session::flash('message','Campground not found.');
+        }
+        else {
+            # First remove any reviews associated with this campground
+            if($campground->reviews()) {
+                $campground->reviews()->detach();
+            }
+
+            # Then delete the campground
+            $campground->delete();
+
+            # Finish
+            Session::flash('flash_message', $campground->name.' was deleted.');
+        }
+
+        # Get all Camgounds along with their Reviews and Type using pivot tables
+        $campgrounds = Campground::with(['reviews','type'])->get();
+
+        # We want to automatically have one selected, so select the first one
+        # Note:  It's ok if there is not any campgrounds, this will return NULL
+        # and the UI handles NULL so no validation is needed here
+        $selected_campground = $campgrounds->first();
+
+        return view('campground.index')->with([
+            'campgrounds' => $campgrounds,
+            'selected_campground' => $selected_campground
+        ]);
     }
 }

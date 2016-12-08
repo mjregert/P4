@@ -3,27 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Carbon;
+use Session;
+use App\Campground;
+use App\Review;
 
 class ReviewController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Show the form for creating a new review.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function create($id)
     {
-        //
-    }
+        $campground = Campground::find($id);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return view('reviews.create')->with([
+                'selected_campground' => $campground
+            ]);
     }
 
     /**
@@ -34,18 +33,26 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        // Validate the user input
+        $review = new Review();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        # Set the parameters
+        # Note how each parameter corresponds to a field in the table
+        $review->username = $request->user()->name;
+        $review->review = $request->review;
+        $review->star_rating = 5;
+        $review->campground_id = $request->campground_id;
+
+        $review->save();
+
+        $campgrounds = Campground::all();
+        $selected_campground = Campground::find($request->campground_id);
+
+        Session::flash('flash_message','Your review was added');
+        return view('campgrounds.index')->with([
+                'campgrounds' => $campgrounds,
+                'selected_campground' => $selected_campground
+            ]);
     }
 
     /**

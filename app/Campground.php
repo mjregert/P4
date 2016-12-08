@@ -11,12 +11,14 @@ class Campground extends Model
     public function reviews() {
         # Campground has many Reviews
         # Define a one-to-many relationship.
-        return $this->hasMany('App\Review');
+        # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
+        return $this->belongsToMany('App\Review')->withTimestamps();
     }
 
     public function type() {
         # Campground has only one Type
         #Types can belong to many Campgrounds
+        # Define an inverse one-to-many relationship.
         return $this->belongsTo('App\Type');
     }
 }

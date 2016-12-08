@@ -59,9 +59,6 @@ such as a page specific stylesheets.
             <a href="/campgrounds/{{ $selected_campground->id }}/edit">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
             </a>
-            <a href="/campgrounds/{{ $selected_campground->id }}/delete">
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-            </a>
         </h1>
         <div>
             <h2>Description of the Campground</h2>
