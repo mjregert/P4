@@ -14,9 +14,12 @@ body {
     margin: 0 auto;
     position: relative;
     height: 100%;
-    padding: 15px 25px;
     /*font-family: 'Anonymous Pro', monospace;
     font-family: 'Maitree', serif;*/
+}
+
+.padded {
+    padding: 15px 25px;
 }
 
 header#mainHeader {
@@ -48,14 +51,13 @@ header#mainHeader p {
 }
 
 .flash_message {
-    width:90%;
+    width:100%;
     text-align:center;
-    padding:5px;
-    position:fixed;
-    top:0;
-    left:0;
+    padding:10px;
+    float: left;
     background-color:yellow;
     font-weight:bold;
+    margin-bottom: 10px;
 }
 
 main {

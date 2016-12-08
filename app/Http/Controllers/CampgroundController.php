@@ -7,6 +7,8 @@ use DB;
 use Carbon;
 use Session;
 use App\Campground;
+use App\Review;
+use App\Type;
 
 class CampgroundController extends Controller
 {
@@ -17,7 +19,7 @@ class CampgroundController extends Controller
      */
     public function index()
     {
-        $campgrounds = Campground::with('reviews')->get();
+        $campgrounds = Campground::with(['reviews','type'])->get();
         // Automatically select the first one
         $selected_campground = $campgrounds->first();
 
@@ -34,7 +36,8 @@ class CampgroundController extends Controller
      */
     public function create()
     {
-        return view('campground.create');
+        $types = Type::all();
+        return view('campground.create')->with(['types' => $types]);
     }
 
     /**
@@ -65,6 +68,7 @@ class CampgroundController extends Controller
         $campground->city = $request->city;
         $campground->state = $request->state;
         $campground->zipcode = $request->zipcode;
+        $campground->type_id = $request->type_id;
 
         # Invoke the Eloquent save() method
         # This will generate a new row in the `campgrounds` table, with the above data
@@ -72,7 +76,10 @@ class CampgroundController extends Controller
 
         $campgrounds = Campground::all();
         Session::flash('flash_message','Your campground was added');
-        return view('campground.index')->with('campgrounds', $campgrounds);;
+        return view('campground.index')->with([
+                'campgrounds' => $campgrounds,
+                'selected_campground' => $campground
+            ]);
     }
 
     /**
@@ -135,6 +142,7 @@ class CampgroundController extends Controller
         $campground->city = $request->city;
         $campground->state = $request->state;
         $campground->zipcode = $request->zipcode;
+        $campground->type_id - $request->type_id;
 
         # Invoke the Eloquent save() method
         # This will update the existing row in the `campgrounds` table, with the above data

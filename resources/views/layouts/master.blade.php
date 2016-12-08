@@ -16,26 +16,26 @@
 
 </head>
 <body>
-    <div class="login">
-        <i class="fa fa-sign-in" aria-hidden="true"> Log In</i>
+    @if(Session::get('flash_message') != null)
+        <div class='flash_message'>{{ Session::get('flash_message') }}</div>
+    @endif
+    <div class="padded">
+        <div class="login">
+            <i class="fa fa-sign-in" aria-hidden="true"> Log In</i>
+        </div>
+        <header id="mainHeader" role="banner">
+            <h1>CampMonkey</h1>
+            <p>Your guide to Scouting Campgrounds</p>
+        </header>
+        <main>
+            {{-- Main page content will be yielded here --}}
+            @yield('content')
+        </main>
+
+        <footer id="footer">
+            <!--&copy; {{ date('Y') }} -->
+        </footer>
     </div>
-    <header id="mainHeader" role="banner">
-        <h1>CampMonkey</h1>
-        <p>Your guide to Scouting Campgrounds</p>
-    </header>
-    <main>
-        @if(Session::get('flash_message') != null)
-            <div class='flash_message'>{{ Session::get('flash_message') }}</div>
-        @endif
-
-        {{-- Main page content will be yielded here --}}
-        @yield('content')
-    </main>
-
-    <footer id="footer">
-        <!--&copy; {{ date('Y') }} -->
-    </footer>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}

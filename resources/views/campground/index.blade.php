@@ -20,7 +20,6 @@ such as a page specific stylesheets.
 <p>Welcome to <em>CampMonkey</em>.  As a scout leader, I know it can be hard to keep track of the campgrounds
     that are available to use as well as which campgrounds have fees to use.  This site provides a listing of
     campgrounds with reviews to help keep track of the various campgrounds and lets you save campgrounds as favorites.</p>
-    <div id="blue">
 <div id="campgrounds">
     <h1>All Campgrounds<a href="/campgrounds/create"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h1>
     @if(!$campgrounds->isEmpty())
@@ -62,6 +61,10 @@ such as a page specific stylesheets.
             <p>{{ $selected_campground->description }}</p>
         </div>
         <div>
+            <h2>Type</h2>
+            <p>{{ $selected_campground->type}}</p>
+        </div>
+        <div>
             <h2>Number of Campsites</h2>
             <p>{{ $selected_campground->campsites }}</p>
         </div>
@@ -77,7 +80,6 @@ such as a page specific stylesheets.
     @else
         <h1>No campground selected</h1>
     @endif
-</div>
 </div>
 @stop
 

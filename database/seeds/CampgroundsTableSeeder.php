@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Type;
 
 class CampgroundsTableSeeder extends Seeder
 {
@@ -11,6 +12,8 @@ class CampgroundsTableSeeder extends Seeder
      */
     public function run()
     {
+        $type_id = Type::where('type','=','FULL')->pluck('id')->first();
+
         DB::table('campgrounds')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -22,7 +25,10 @@ class CampgroundsTableSeeder extends Seeder
             'city' => 'Stonewall',
             'state' => 'TX',
             'zipcode' => 78671,
+            'type_id' => $type_id,
         ]);
+
+        $type_id = Type::where('type','=','FULL')->pluck('id')->first();
 
         DB::table('campgrounds')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -35,7 +41,10 @@ class CampgroundsTableSeeder extends Seeder
             'city' => 'Bastrop',
             'state' => 'TX',
             'zipcode' => 78602,
+            'type_id' => $type_id,
         ]);
+
+        $type_id = Type::where('type','=','BASIC')->pluck('id')->first();
 
         DB::table('campgrounds')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -48,6 +57,7 @@ class CampgroundsTableSeeder extends Seeder
             'city' => 'Giddings',
             'state' => 'TX',
             'zipcode' => 78942,
+            'type_id' => $type_id,
         ]);
     }
 }

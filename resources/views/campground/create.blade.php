@@ -20,7 +20,15 @@ such as a page specific stylesheets.
 <small><em>* indicates required field</em>
 <form method='POST' action='/campgrounds'>
     <div>
-        <label for="name">Campground Name or Title<em> *</em></label><br>
+        <label for="type_id">Type of Campground<em> *</em></label><br>
+        <select id="type_id" name="type_id">
+            @foreach($types as $campground_type)
+                <option value="{{ $campground_type->id }}">{{ $campground_type->type }}: {{ $campground_type->description }}</option>
+            @endforeach
+        </select>
+    </div>
+    <div>
+        <label for="name">Campground Name<em> *</em></label><br>
         <input id="name" name="name" type="text" required aria-required="true" value="{{ old('name', 'CampsiteABC') }}">
     </div>
     <div>
