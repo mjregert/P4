@@ -11,8 +11,7 @@ class Campground extends Model
     public function reviews() {
         # Campground has many Reviews
         # Define a one-to-many relationship.
-        # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
-        return $this->belongsToMany('App\Review')->withTimestamps();
+        return $this->hasMAny('App\Review');
     }
 
     public function type() {
