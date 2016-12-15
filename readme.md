@@ -13,7 +13,7 @@ Currently, roles is not implemented so all users logged in can perform all CRUD 
 In addition, I'd like to add a star rating for the reviews, and a many-to-many table for amenities for each camp.  Both of these will complete the site and allow users to properly narrow down on what they're looking for.
 
 ##Demo
-TBD
+https://youtu.be/wjRqZfXMhbs
 
 ##Details for teaching team
 I had originally done the UI in a standard gray, white, blue colors from the Boy Scouts of America style.  I then completely rewrote the UI to be a black UI using the tent image I found.  Overall, I like it, but I think the bottom half where it shows the campground details and reviews could be redone.  Maybe that would be white. I think the colors don't work well here but overall, it's functional.  I do like how I have it as a "single page" for all READ operations rather than navigating the user to an new page for each campsite or review.  I had hoped to get in a many-to-many for amenities as well as a star rating, but ran out of time.
