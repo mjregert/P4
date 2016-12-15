@@ -9,29 +9,44 @@ such as a page specific stylesheets.
 @stop
 
 @section('content')
-<h1>New Review for {{ $selected_campground->name }}</h1>
-<small><em>* indicates required field</em>
-<form method='POST' action='/campgrounds/{{$selected_campground->id}}/reviews'>
-    <div>
-        <label for="name">User Name</label>
-        <p> {{ Auth::user()->name }} </p>
-    </div>
-    <div>
-        <label for="review">Review<em> *</em></label><br>
-        <textarea id="review" name="review" value="{{ old('review', 'Some Review Here') }}"></textarea>
-    </div>
-    <input id="campground_id" name="campground_id" type="hidden" value="{{ $selected_campground->id }}">
-    <div>{{ csrf_field() }}</div>
-    <input id="reset" type="reset"><input id="submit" type="submit">
-</form>
-@stop
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">New Review for {{ $selected_campground->name }}</div>
+                <div class="panel-body">
+                    <small><em>* indicates required field</em>
+                    <form class="form-horizontal" role="form" method='POST' action='/campgrounds/{{$selected_campground->id}}/reviews'>
+                        {{ csrf_field() }}
+                        <input id="campground_id" name="campground_id" type="hidden" value="{{ $selected_campground->id }}">
 
+                        <div class="form-group{{ $errors->has('review') ? ' has-error' : '' }}">
+                            <label for="review" class="col-md-4 control-label">Review<em> *</em></label>
 
-{{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
---}}
-@section('body')
-    <!--script src="/js/books/show.js"></script-->
-@stop
+                            <div class="col-md-6">
+                                <input id="review" type="text" class="form-control" name="review" value="{{ old('review') }}">
+
+                                @if ($errors->has('review'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('review') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <a class="btn btn-link" href="{{ url('/') }}">
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

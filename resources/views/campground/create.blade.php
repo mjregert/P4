@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 {{--
 This `head` section will be yielded right before the closing </head> tag.
 Use it to add specific things that *this* View needs in the head,
@@ -206,6 +205,9 @@ such as a page specific stylesheets.
                                 <button type="submit" class="btn btn-primary">
                                     Submit
                                 </button>
+                                <a class="btn btn-link" href="{{ url('/') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>

@@ -54,40 +54,43 @@ such as a page specific stylesheets.
             <h2>No campgrounds available at this time</h2>
         @endif
     </div>
-    <hr>
     <div id="details">
-        @if($selected_campground)
-            <h2>{{ $selected_campground->name }}
-                @if(Auth::check())
-                    <a href="/campgrounds/{{ $selected_campground->id }}/edit">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </a>
-                @endif
-            </h2>
-            <div>
-                <h3>Description of the Campground</h3>
+    @if($selected_campground)
+        <h2>{{ $selected_campground->name }}
+            @if(Auth::check())
+                <a href="/campgrounds/{{ $selected_campground->id }}/edit">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+            @endif
+        </h2>
+        <div>
+            <h3>Description of the Campground</h3>
+            @if($selected_campground->description == "")
+                <p>No description provided</p>
+            @else
                 <p>{{ $selected_campground->description }}</p>
-            </div>
-            <div>
-                <h3>Type</h3>
-                <p>{{ $selected_campground->type}}</p>
-            </div>
-            <div>
-                <h3>Number of Campsites</h3>
-                <p>{{ $selected_campground->campsites }}</p>
-            </div>
-            <div>
-                <h3>Usage Fee (if applicable)</h3>
-                <p>${{ $selected_campground->fees }}</p>
-            </div>
-            <div>
-                <h3>Address</h3>
-                <p>{{ $selected_campground->address }}</p>
-                <p>{{ $selected_campground->city }}, {{ $selected_campground->state }}&nbsp;&nbsp;{{ $selected_campground->zipcode }}</p>
-            </div>
-        @else
-            <p>No campground selected</p>
-        @endif
+            @endif
+        </div>
+        <div>
+            <h3>Type</h3>
+            <p>{{ $selected_campground->type->description}}</p>
+        </div>
+        <div>
+            <h3>Number of Campsites</h3>
+            <p>{{ $selected_campground->campsites }}</p>
+        </div>
+        <div>
+            <h3>Usage Fee (if applicable)</h3>
+            <p>${{ $selected_campground->fees }}</p>
+        </div>
+        <div>
+            <h3>Address</h3>
+            <p>{{ $selected_campground->address }}</p>
+            <p>{{ $selected_campground->city }}, {{ $selected_campground->state }}&nbsp;&nbsp;{{ $selected_campground->zipcode }}</p>
+        </div>
+    @else
+        <p>No campground selected</p>
+    @endif
     </div>
     <div id="reviews">
         <h2>Reviews

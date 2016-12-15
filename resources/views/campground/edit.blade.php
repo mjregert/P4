@@ -208,6 +208,9 @@ such as a page specific stylesheets.
                                 <button type="submit" class="btn btn-primary">
                                     Submit
                                 </button>
+                                <a class="btn btn-link" href="{{ url('/') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>
