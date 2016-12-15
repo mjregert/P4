@@ -15,7 +15,7 @@ such as a page specific stylesheets.
             <div class="panel panel-default">
                 <div class="panel-heading">New Review for {{ $selected_campground->name }}</div>
                 <div class="panel-body">
-                    <small><em>* indicates required field</em>
+                    <em>* indicates required field</em>
                     <form class="form-horizontal" role="form" method='POST' action='/campgrounds/{{$selected_campground->id}}/reviews'>
                         {{ csrf_field() }}
                         <input id="campground_id" name="campground_id" type="hidden" value="{{ $selected_campground->id }}">

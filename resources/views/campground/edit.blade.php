@@ -16,7 +16,7 @@ such as a page specific stylesheets.
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Campground</div>
                 <div class="panel-body">
-                    <small><em>* indicates required field</em>
+                    <em>* indicates required field</em>
                     <form class="form-horizontal" role="form" method='POST' action='/campgrounds/{{ $campground->id }}'>
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
