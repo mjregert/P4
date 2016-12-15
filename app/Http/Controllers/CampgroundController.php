@@ -9,6 +9,7 @@ use Session;
 use App\Campground;
 use App\Review;
 use App\Type;
+use Auth;
 
 class CampgroundController extends Controller
 {
@@ -40,6 +41,9 @@ class CampgroundController extends Controller
      */
     public function create()
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         # Get all of the Types so that the UI can provide this in the form
         $types = Type::all();
 
@@ -56,6 +60,9 @@ class CampgroundController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         // Validate the user input
         $this->validate($request, [
             'name' => 'required|string|max:255',
@@ -111,6 +118,10 @@ class CampgroundController extends Controller
     public function edit($id)
     {
 
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
+
         # Get all of the Types so that the UI can provide this in the form
         $types = Type::all();
         $campground = Campground::find($id);
@@ -130,6 +141,10 @@ class CampgroundController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
+
         $campground = Campground::find($id);
         // Add validation to ensure this is found
 
@@ -168,6 +183,10 @@ class CampgroundController extends Controller
      */
     public function delete($id)
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
+
         $selected_campground = Campground::find($id);
         // Add validation to ensure this is found
 
@@ -182,6 +201,10 @@ class CampgroundController extends Controller
      */
     public function destroy($id)
     {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
+
         # Get the Campground to be deleted
         $campground = Campground::find($id);
 

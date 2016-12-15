@@ -16,8 +16,12 @@ In addition, I'd like to add a star rating for the reviews, and a many-to-many t
 TBD
 
 ##Details for teaching team
+I had originally done the UI in a standard gray, white, blue colors from the Boy Scouts of America style.  I then completely rewrote the UI to be a black UI using the tent image I found.  Overall, I like it, but I think the bottom half where it shows the campground details and reviews could be redone.  Maybe that would be white. I think the colors don't work well here but overall, it's functional.  I do like how I have it as a "single page" for all READ operations rather than navigating the user to an new page for each campsite or review.  I had hoped to get in a many-to-many for amenities as well as a star rating, but ran out of time.
+
 
 ##Outside code
+- Leveraging a CSS reset from http://meyerweb.com/eric/tools/css/reset/
+- Image for top from https://pixabay.com/en/tent-camp-night-star-camping-548022/
 
 ## Planning document
 https://docs.google.com/document/d/1ZvQ6DDeohhYfX6C6g2v_qv2qWhDLEKLf9d4QRpkzkM4/edit?usp=sharing
