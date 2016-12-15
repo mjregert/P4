@@ -20,7 +20,7 @@ class ReviewController extends Controller
     {
         $campground = Campground::find($id);
 
-        return view('reviews.create')->with([
+        return view('review.create')->with([
                 'selected_campground' => $campground
             ]);
     }
@@ -45,14 +45,8 @@ class ReviewController extends Controller
 
         $review->save();
 
-        $campgrounds = Campground::all();
-        $selected_campground = Campground::find($request->campground_id);
-
         Session::flash('flash_message','Your review was added');
-        return view('campgrounds.index')->with([
-                'campgrounds' => $campgrounds,
-                'selected_campground' => $selected_campground
-            ]);
+        return redirect('/campgrounds');
     }
 
     /**

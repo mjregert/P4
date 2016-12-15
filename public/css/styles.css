@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Maitree');
-
 html {
     box-sizing: border-box;
     height: 100%;
@@ -51,12 +50,12 @@ header#mainHeader p {
 }
 
 .flash_message {
-    width:100%;
-    text-align:center;
-    padding:10px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
     float: left;
-    background-color:yellow;
-    font-weight:bold;
+    background-color: yellow;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
@@ -72,6 +71,7 @@ main>p {
     background-color: lightblue;
     border-radius: 0.5em;
 }
+
 
 /** -------------------------
  *  CAMPGROUND LIST / NAVIGATION
@@ -103,13 +103,6 @@ main>p {
     margin: 1em 0;
 }
 
-#blueu {
-    padding: 20px;
-    border: 2px solid darkgray;
-
-    background-color: lightblue;
-}
-
 #campgrounds li i {
     color: #003F87;
 }
@@ -125,9 +118,11 @@ main>p {
     font-weight: bold;
 }
 
+
 /** -------------------------
  *  CAMPGROUND DETAILS
  **/
+
 #details {
     margin-left: 320px;
     margin-right: 320px;
@@ -152,15 +147,13 @@ main>p {
 }
 
 #reviews {
-    float:right;
+    float: right;
     width: 400px;
     background-color: lightgreen;
     border: 1px solid darkgray;
     border-radius: 1em;
     padding: 1em 1em;
 }
-
-
 
 #reviews .review {
     margin: 1.5em 0;
@@ -176,9 +169,11 @@ main>p {
     color: #003F87;
 }
 
+
 /** -------------------------
  *  CREATE CAMPGROUND STYLES
  **/
+
 form div {
     margin: 20px 0;
 }
@@ -194,11 +189,10 @@ em {
 }
 
 input[type="text"], textarea {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-  appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
-
 
 input, select, textarea {
     font-size: 1.2em;
@@ -207,9 +201,9 @@ input, select, textarea {
 }
 
 input[type="checkbox"] {
-  vertical-align: middle;
-  position: relative;
-  bottom: 3px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 3px;
 }
 
 input[name="name"], input[name="address"] {

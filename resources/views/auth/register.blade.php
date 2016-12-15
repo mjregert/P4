@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+{{--
+This `head` section will be yielded right before the closing </head> tag.
+Use it to add specific things that *this* View needs in the head,
+such as a page specific stylesheets.
+--}}
+@section('head')
+    <link href="/css/styles2.css" type='text/css' rel='stylesheet'>
+@stop
+
 @section('content')
 <div class="container">
     <div class="row">

@@ -82,12 +82,7 @@ class CampgroundController extends Controller
         # This will generate a new row in the `campgrounds` table, with the above data
         $campground->save();
 
-        $campgrounds = Campground::all();
-        Session::flash('flash_message','Your campground was added');
-        return view('campground.index')->with([
-                'campgrounds' => $campgrounds,
-                'selected_campground' => $campground
-            ]);
+        return redirect('/campgrounds');
     }
 
     /**
@@ -101,7 +96,6 @@ class CampgroundController extends Controller
         $campgrounds = Campground::all();
         $selected_campground = Campground::find($id);
 
-        // Add validation to ensure this is found
         return view('campground.index')->with([
                 'campgrounds' => $campgrounds,
                 'selected_campground' => $selected_campground
@@ -116,9 +110,15 @@ class CampgroundController extends Controller
      */
     public function edit($id)
     {
+
+        # Get all of the Types so that the UI can provide this in the form
+        $types = Type::all();
         $campground = Campground::find($id);
-        // Add validation to ensure this is found
-        return view('campground.edit')->with('campground', $campground);
+
+        return view('campground.edit')->with([
+            'campground' => $campground,
+            'types' => $types
+        ]);
     }
 
     /**
@@ -150,22 +150,14 @@ class CampgroundController extends Controller
         $campground->city = $request->city;
         $campground->state = $request->state;
         $campground->zipcode = $request->zipcode;
-        $campground->type_id - $request->type_id;
+        $campground->type_id = $request->type_id;
 
         # Invoke the Eloquent save() method
         # This will update the existing row in the `campgrounds` table, with the above data
         $campground->save();
 
         Session::flash('flash_message','Your campground edits were saved');
-
-        $campgrounds = Campground::all();
-        $selected_campground = Campground::find($id);
-
-        // Add validation to ensure this is found
-        return view('campground.index')->with([
-                'campgrounds' => $campgrounds,
-                'selected_campground' => $selected_campground
-            ]);
+        return redirect('/campgrounds');
     }
 
     /**
@@ -199,7 +191,7 @@ class CampgroundController extends Controller
         else {
             # First remove any reviews associated with this campground
             if($campground->reviews()) {
-                $campground->reviews()->detach();
+                $campground->reviews()->delete();
             }
 
             # Then delete the campground
@@ -208,18 +200,6 @@ class CampgroundController extends Controller
             # Finish
             Session::flash('flash_message', $campground->name.' was deleted.');
         }
-
-        # Get all Camgounds along with their Reviews and Type using pivot tables
-        $campgrounds = Campground::with(['reviews','type'])->get();
-
-        # We want to automatically have one selected, so select the first one
-        # Note:  It's ok if there is not any campgrounds, this will return NULL
-        # and the UI handles NULL so no validation is needed here
-        $selected_campground = $campgrounds->first();
-
-        return view('campground.index')->with([
-            'campgrounds' => $campgrounds,
-            'selected_campground' => $selected_campground
-        ]);
+        return redirect('/campgrounds');
     }
 }

@@ -1,10 +1,4 @@
-@extends('layouts.master')
-
-
-@section('title')
-    Show all Campgrounds
-@stop
-
+@extends('layouts.app')
 
 {{--
 This `head` section will be yielded right before the closing </head> tag.
@@ -12,90 +6,107 @@ Use it to add specific things that *this* View needs in the head,
 such as a page specific stylesheets.
 --}}
 @section('head')
-    <!--link href="/css/books/show.css" type='text/css' rel='stylesheet'-->
+    <link href="/css/styles2.css" type='text/css' rel='stylesheet'>
 @stop
-
 
 @section('content')
-<p>Welcome to <em>CampMonkey</em>.  As a scout leader, I know it can be hard to keep track of the campgrounds
-    that are available to use as well as which campgrounds have fees to use.  This site provides a listing of
-    campgrounds with reviews to help keep track of the various campgrounds and lets you save campgrounds as favorites.</p>
-<div id="campgrounds">
-    <h1>All Campgrounds<a href="/campgrounds/create"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h1>
-    @if(!$campgrounds->isEmpty())
-        <nav>
-            <ul>
-                @foreach($campgrounds as $campground)
-                    @if($campground->id == $selected_campground->id)
-                        <li><i class="fa fa-tree" aria-hidden="true"></i><a class="active" href="/campgrounds/{{$campground->id}}">{{ $campground->name }}</a></li>
-                    @else
-                    <li><i class="fa fa-tree" aria-hidden="true"></i><a href="/campgrounds/{{$campground->id}}">{{ $campground->name }}</a></li>
-                    @endif
-                @endforeach
-            </ul>
-        </nav>
-    @else
-        <h2>No campgrounds available at this time</h2>
-    @endif
-</div>
-<div id="reviews">
-    <h1>Reviews<a href="/campgrounds/{{$selected_campground->id}}/reviews/create"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></h1>
-    @if(!$selected_campground->reviews->isEmpty())
-        @foreach($selected_campground->reviews as $review)
-        <div class="review">
-            <h2>{{ $review->username }}</h2>
-            <em>{{ $review->created_at }}</em>
-            <p>{{ $review->review }}</p>
-        </div>
-        <hr>
-        @endforeach
-    @else
-        <p>No Reviews Available</p>
-    @endif
-</div>
-<div id="details">
-    @if($selected_campground)
-        <h1>{{ $selected_campground->name }}
-            <a href="/campgrounds/{{ $selected_campground->id }}/edit">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-            </a>
-            <a href="/campgrounds/{{ $selected_campground->id }}/delete">
-                <i class="fa fa-minus-circle" aria-hidden="true"></i>
-            </a>
-        </h1>
-        <div>
-            <h2>Description of the Campground</h2>
-            <p>{{ $selected_campground->description }}</p>
-        </div>
-        <div>
-            <h2>Type</h2>
-            <p>{{ $selected_campground->type}}</p>
-        </div>
-        <div>
-            <h2>Number of Campsites</h2>
-            <p>{{ $selected_campground->campsites }}</p>
-        </div>
-        <div>
-            <h2>Usage Fee (if applicable)</h2>
-            <p>${{ $selected_campground->fees }}</p>
-        </div>
-        <div>
-            <h2>Address</h2>
-            <p>{{ $selected_campground->address }}</p>
-            <p>{{ $selected_campground->city }}, {{ $selected_campground->state }}&nbsp;&nbsp;{{ $selected_campground->zipcode }}</p>
-        </div>
-    @else
-        <h1>No campground selected</h1>
-    @endif
-</div>
-@stop
+    <p>Welcome to CampMonkey. As a scout leader, I know it can be hard to keep track of the campgrounds
+        that are available to use as well as which campgrounds have fees to use. This site provides
+        a listing of campgrounds with reviews to help keep track of the various campgrounds and
+        lets you save campgrounds as favorites.  To add campgrounds to the list and provide reviews, you
+        must register and log in.</p>
 
-
-{{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
---}}
-@section('body')
-    <!--script src="/js/books/show.js"></script-->
-@stop
+    <div id="campgrounds_header">
+        <h2>All Campgrounds
+            @if(Auth::check())
+                <a href="/campgrounds/create">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </a>
+            @endif
+        </h2>
+        @if(!$campgrounds->isEmpty())
+            <nav id="campgrounds">
+                <ul>
+                    @foreach($campgrounds as $campground)
+                        @if($campground->id == $selected_campground->id)
+                            <li><i class="fa fa-tree" aria-hidden="true"></i>
+                                <a class="active" href="/campgrounds/{{$campground->id}}">{{ $campground->name }}</a>
+                                @if(Auth::check())
+                                    <a href="/campgrounds/{{$campground->id}}/delete">
+                                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                    </a>
+                                @endif
+                            </li>
+                        @else
+                        <li><i class="fa fa-tree" aria-hidden="true"></i>
+                            <a href="/campgrounds/{{$campground->id}}">{{ $campground->name }}</a>
+                            @if(Auth::check())
+                                <a href="/campgrounds/{{$campground->id}}/delete">
+                                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                                </a>
+                            @endif
+                        </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </nav>
+        @else
+            <h2>No campgrounds available at this time</h2>
+        @endif
+    </div>
+    <hr>
+    <div id="details">
+        @if($selected_campground)
+            <h2>{{ $selected_campground->name }}
+                @if(Auth::check())
+                    <a href="/campgrounds/{{ $selected_campground->id }}/edit">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                @endif
+            </h2>
+            <div>
+                <h3>Description of the Campground</h3>
+                <p>{{ $selected_campground->description }}</p>
+            </div>
+            <div>
+                <h3>Type</h3>
+                <p>{{ $selected_campground->type}}</p>
+            </div>
+            <div>
+                <h3>Number of Campsites</h3>
+                <p>{{ $selected_campground->campsites }}</p>
+            </div>
+            <div>
+                <h3>Usage Fee (if applicable)</h3>
+                <p>${{ $selected_campground->fees }}</p>
+            </div>
+            <div>
+                <h3>Address</h3>
+                <p>{{ $selected_campground->address }}</p>
+                <p>{{ $selected_campground->city }}, {{ $selected_campground->state }}&nbsp;&nbsp;{{ $selected_campground->zipcode }}</p>
+            </div>
+        @else
+            <p>No campground selected</p>
+        @endif
+    </div>
+    <div id="reviews">
+        <h2>Reviews
+            @if(Auth::check())
+                <a href="/campgrounds/{{$selected_campground->id}}/reviews/create">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </a>
+            @endif
+        </h2>
+        @if(!$selected_campground->reviews->isEmpty())
+            @foreach($selected_campground->reviews as $review)
+                <div class="review">
+                    <h3>{{ $review->username }}</h3>
+                    <em>{{ $review->created_at }}</em>
+                    <p>{{ $review->review }}</p>
+                </div>
+            @endforeach
+        @else
+            <p>No Reviews Available</p>
+        @endif
+    </div>
+@endsection

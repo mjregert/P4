@@ -15,6 +15,7 @@
 Route::get('/', 'PageController')->name('page.index');
 
 // Routes for the CRUD operations for campgrounds
+
 Route::get('/campgrounds',             'CampgroundController@index')->name('campground.index');
 Route::get('/campgrounds/create',      'CampgroundController@create')->name('campground.create');
 Route::post('/campgrounds',            'CampgroundController@store')->name('campground.store');
@@ -86,4 +87,4 @@ if(App::environment('local')) {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+/*Route::get('/home', 'HomeController@index');*/

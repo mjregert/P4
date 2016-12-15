@@ -12,6 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="/css/font-awesome.css">
+
+    {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
+    @yield('head')
 
     <!-- Scripts -->
     <script>
@@ -35,8 +39,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/campgrounds') }}">
+                        Home
                     </a>
                 </div>
 
@@ -77,8 +81,21 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+            <div id="campmonkey">
+                <header id="mainHeader">
+                    <div id="mainHeaderText">
+                        <h1>CampMonkey</h1>
+                        <p>Your guide to the best Campgrounds</p>
+                    </div>
+                </header>
+                <main>
+                    @yield('content')
+                </main>
+                <footer>
+                </footer>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->

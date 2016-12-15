@@ -1,0 +1,132 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    background-color: #000;
+    min-width: 950px;
+}
+
+#campmonkey {
+    background-color: #000;
+    color: #FFF;
+}
+
+#campmonkey header#mainHeader {
+    background: url(/images/tent3.jpg) no-repeat;
+    background-position: right center;
+    margin: 0 auto;
+    height: 250px;
+    overflow: auto;
+}
+
+#campmonkey header#mainHeader #mainHeaderText {
+    text-align: center;
+    display: inline-block;
+    left: p;
+    height: 100%;
+    padding: 25px 0px;
+}
+
+#campmonkey header#mainHeader h1 {
+    color: #bf7a00;
+    /*#f5023f;*/
+    font-size: 5em;
+    font-weight: bold;
+}
+
+#campmonkey header#mainHeader p {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    color: #0280f5;
+    padding: .2em;
+}
+
+#campmonkey main>p {
+    background-color: #222;
+    color: white;
+    padding: 1em;
+    font-size: 1.3em;
+}
+
+#campmonkey #campgrounds {
+    /* Chrome, Safari, Opera */
+    -webkit-column-count: 3;
+    /* Firefox */
+    -moz-column-count: 3;
+    column-count: 3;
+}
+
+#campmonkey i.fa-plus-circle {
+    color: #f5023f;
+    font-size: 2rem;
+}
+
+#campmonkey #campgrounds li {
+    margin: 1em 0;
+    list-style: none;
+}
+
+#campmonkey #campgrounds li i {
+    color: #228b22;
+}
+
+#campmonkey #campgrounds a {
+    margin: 1em;
+    text-decoration: none;
+}
+
+#campmonkey h2 {
+    color: #f5023f;
+}
+
+#campmonkey #details {
+    float: left;
+    width: 60%;
+    text-align: center;
+}
+
+#campmonkey #details h3 {
+    font-size: 1.5em;
+    color: #0280f5;
+}
+
+#campmonkey #details div {
+    background-color: #123;
+}
+
+#campmonkey #reviews {
+    float: right;
+    width: 35%;
+    border: 2px solid green;
+}
+
+#campmonkey #reviews .review {
+    background-color: #123;
+    padding: 0 1em;
+    margin: 1em;
+}
+
+#campmonkey #reviews .review h3 {
+    background-color: #321;
+}
+
+#campmonkey #reviews .review p {
+    background-color: #321;
+}
+
+footer {
+    clear: both;
+    margin-bottom: 2em;
+}
+
+.confirmation {
+    color: black;
+    margin: 1em;
+    font-size: 1.5em;
+}
