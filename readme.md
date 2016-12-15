@@ -25,13 +25,12 @@ https://docs.google.com/document/d/1ZvQ6DDeohhYfX6C6g2v_qv2qWhDLEKLf9d4QRpkzkM4/
 ## CRUD operations
 ### Campgrounds:
 - CREATE: Only available as a logged in user.  Log in as a user, then click the + icon next to the title for Campgrounds.  A form will show up to create a new campground.
- - READ: Viewable by everyone.  Go to main page.  To view an individual campground, select it from the list. The details will appear on the same page at the bottom on the left.
- - UPDATE:  Only available as a logged in user.  Log in as a user, then click the pencil icon next to the title for individual campground on the details pane.  A form will show up to edit the selected campground.
- - DELETE:  Only available as a logged in user.  Log in as a user, then click the - icon next to the title of the campground in the list of all Campgrounds.  A delete confirmation will come up.
+- READ: Viewable by everyone.  Go to main page.  To view an individual campground, select it from the list. The details will appear on the same page at the bottom on the left.
+- UPDATE:  Only available as a logged in user.  Log in as a user, then click the pencil icon next to the title for individual campground on the details pane.  A form will show up to edit the selected campground.
+- DELETE:  Only available as a logged in user.  Log in as a user, then click the - icon next to the title of the campground in the list of all Campgrounds.  A delete confirmation will come up.
 
- ### Reviews:
- - CREATE: Only available as a logged in user.  Log in as a user, then click the + icon next to the Reviews title for a selected campground.  A form will show up to create a new review.
-  - READ: Viewable by everyone.  Go to main page.  To view an individual campground, select it from the list. The reviews for that campground will appear on the same page at the bottom on the right.
-  - UPDATE: I did not implement this for review.  Many times a review, once submitted cannot be edited.
-  - DELETE: I did not implement this for review.  Many times a review, once submitted cannot be deleted.  Once I get roles in place, this probably fall under an admin role operation.
-  
+### Reviews:
+- CREATE: Only available as a logged in user.  Log in as a user, then click the + icon next to the Reviews title for a selected campground.  A form will show up to create a new review.
+- READ: Viewable by everyone.  Go to main page.  To view an individual campground, select it from the list. The reviews for that campground will appear on the same page at the bottom on the right.
+- UPDATE: I did not implement this for review.  Many times a review, once submitted cannot be edited.
+- DELETE: I did not implement this for review.  Many times a review, once submitted cannot be deleted.  Once I get roles in place, this probably fall under an admin role operation.
