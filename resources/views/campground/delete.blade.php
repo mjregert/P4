@@ -26,8 +26,11 @@ such as a page specific stylesheets.
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Yes
+                                    Delete
                                 </button>
+                                <a class="btn btn-link" href="{{ url('/') }}">
+                                    Cancel
+                                </a>
                             </div>
                         </div>
                     </form>
