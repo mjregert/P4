@@ -40,7 +40,6 @@ class ReviewController extends Controller
         # Note how each parameter corresponds to a field in the table
         $review->username = $request->user()->name;
         $review->review = $request->review;
-        $review->star_rating = 5;
         $review->campground_id = $request->campground_id;
 
         $review->save();

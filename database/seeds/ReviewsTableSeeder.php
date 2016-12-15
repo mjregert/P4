@@ -20,7 +20,6 @@ class ReviewsTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'username' => 'Codemonkey_42',
             'review' => 'This campground is awesome.  It has a great firepit for roasting marshmallows and it is FREE for all scouts',
-            'star_rating' => 5,
             'campground_id' => $campground_id,
         ]);
 
@@ -31,7 +30,6 @@ class ReviewsTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'username' => 'Codemonkey_42',
             'review' => 'This campground hasa great 60ft climbing tower which is really fun.  Some of the campsites can be a walk to the restrooms, but overall a great place to camp.',
-            'star_rating' => 4,
             'campground_id' => $campground_id,
         ]);
 
